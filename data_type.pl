@@ -121,15 +121,42 @@ use Data::Dumper;
 my $hash_ref = {
     a => 1,
     b => 2,
+    c => {
+        new => 1,
+        new2 => 2,
+        deeply => [ 3, 4, 5 ],
+    },
 };
-my $array_ref = [ 1, 2, 3, 4 ];
+# my $array_ref = [ 1, 2, 3, 4 ];
+my $array_ref = [
+    1,
+    [ qw/ a b c / ],
+    {
+        a => 1,
+        b => {
+            c => [
+                {
+                    a => [ qw/find me/ ],
+                }
+            ]
+        }
+    }
+];
 
 # print Dumper( $hash_ref->{a} ); # dereference here is a must
 # print Dumper( $array_ref->[1] ); # dereference here
 # print Dumper( $hash_ref->%* ); # dereference here
 # print Dumper( $array_ref->@* ); # dereference here
 # print Dumper( @$array_ref ); # dereference here
-print Dumper( @{ $array_ref } ); # dereference here
-print Dumper( %$hash_ref ); # dereference here
+# print Dumper( @{ $array_ref } ); # dereference here
+# print Dumper( %$hash_ref ); # dereference here
+# print Dumper( $hash_ref ); # dereference here
+# print Dumper( $hash_ref->{c}->{deeply}->[2] ); # dereference here is a must
+# print Dumper( $array_ref->[2]->{b}->{c}->[0]->{a} );
+# print Dumper( ref( $array_ref ) );
+# print Dumper( ref( $hash_ref ) );
+delete $hash_ref->{b};
+print Dumper( keys $hash_ref->%* );
+print Dumper( values $hash_ref->%* );
 
 1;
