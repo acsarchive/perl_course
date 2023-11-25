@@ -1,0 +1,114 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+## file structure
+# my $test = 'random';
+
+# print "Hello world!\n";
+# print $test . "Hello world!\n";
+
+## data types
+# my $test = 1;
+# my $string = 'hello';
+# my $decimal = 1.22;
+# my $string2 = "hello2 $string";
+
+# print $string2;
+# print $test / $decimal . "\n";
+# my $number = 1;
+# my $string = 'hello';
+# print $string . $number . "\n";
+# print "hello \$number\n";
+
+## Debuggering
+use Data::Dumper;
+
+# my $a = 'hello';
+# my $b = 22.32;
+# print Dumper( $a, $b );
+
+## Data types - array
+
+# my @test = (
+#     22,
+#     'hello',
+#     1.22
+# );
+
+# my @test = qw/ one two three my four /;
+# my @test = ( 11 .. 30 );
+# my @test = ( 'g' .. 'z' );
+# my @test = ( 1, 2, 3, 4 );
+# my @test =  qw/ h o p m l a b c /;
+# my @test = ( 4, 2, 10, 22, 30 );
+# @test = sort { $a <=> $b } @test;
+# @test = sort { $b <=> $a } @test;
+
+# $test[-1] = 'override';
+# my $size = @test;
+# my $last_index = $#test;
+
+# print Dumper( @test );
+
+# # push
+# push @test, 20;
+# # pop
+# pop @test;
+# # shift
+# shift @test;
+# # unshift
+# unshift @test, 10;
+
+# @test = sort @test;
+
+
+# print Dumper( @test[ 2 .. 3 ] );
+# print Dumper( @test );
+
+## Data types - hash
+# my %map = (
+#     a => 20,
+#     b => 'hello',
+#     c => 11.22,
+#     d => undef,
+# );
+
+# my %map2 = (
+#     hello => 1,
+#     %map,
+#     c => 'new',
+# );
+
+# my @array = keys %map;
+# my $size = keys %map;
+# my $exists = exists $map{d} ? 'yes' : 'no';
+# delete $map{c};
+
+# print Dumper( %map );
+# print Dumper( %map2 );
+# print Dumper( @map{ 'a', 'c' } );
+# print Dumper( @array . ' ' . $size );
+# print Dumper( $exists );
+# print Dumper( %map );
+# print Dumper( $map{d} );
+
+## Data types - reference
+my %hash = ( a => 1, b => 2 );
+my @array = qw/ string1 string2 /;
+my $scalar = 32;
+
+# print %hash;
+# print \@array . "\n";
+# my $ref1 = \@array;
+# my $ref2 = \@array;
+
+# push $ref1->@*, 'new';
+# push $ref2->@*, 'new2';
+
+print Dumper( @array );
+print Dumper( \@array );
+print Dumper( \%hash );
+
+1;
