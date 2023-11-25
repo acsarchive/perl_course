@@ -95,9 +95,9 @@ use Data::Dumper;
 # print Dumper( $map{d} );
 
 ## Data types - reference
-my %hash = ( a => 1, b => 2 );
-my @array = qw/ string1 string2 /;
-my $scalar = 32;
+# my %hash = ( a => 1, b => 2 );
+# my @array = qw/ string1 string2 /;
+# my $scalar = 32;
 
 # print %hash;
 # print \@array . "\n";
@@ -107,8 +107,29 @@ my $scalar = 32;
 # push $ref1->@*, 'new';
 # push $ref2->@*, 'new2';
 
-print Dumper( @array );
-print Dumper( \@array );
-print Dumper( \%hash );
+# print Dumper( @array );
+# print Dumper( \@array );
+# print Dumper( \%hash );
+
+# my $hash_ref = {
+#     hello => 1,
+#     world => 2,
+# };
+
+# print Dumper( $hash_ref );
+
+my $hash_ref = {
+    a => 1,
+    b => 2,
+};
+my $array_ref = [ 1, 2, 3, 4 ];
+
+# print Dumper( $hash_ref->{a} ); # dereference here is a must
+# print Dumper( $array_ref->[1] ); # dereference here
+# print Dumper( $hash_ref->%* ); # dereference here
+# print Dumper( $array_ref->@* ); # dereference here
+# print Dumper( @$array_ref ); # dereference here
+print Dumper( @{ $array_ref } ); # dereference here
+print Dumper( %$hash_ref ); # dereference here
 
 1;
